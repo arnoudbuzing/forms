@@ -1,0 +1,723 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     29379,        715]
+NotebookOptionsPosition[     28599,        684]
+NotebookOutlinePosition[     28945,        699]
+CellTagsIndexPosition[     28902,        696]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Clear", "[", "questions", "]"}], ";"}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"questions", "=", 
+    RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"questions", ",", "\[IndentingNewLine]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<key\>\"", "\[Rule]", "\"\<Q1\>\""}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<question\>\"", "\[Rule]", 
+        "\"\<What is the capital of Australia?\>\""}], " ", ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"\"\<answers\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Melbourne\>\"", ",", "\"\<Adelaide\>\"", ",", "\"\<Sydney\>\"", 
+          ",", "\"\<Canberra\>\""}], "}"}]}]}], "\[IndentingNewLine]", 
+      "|>"}]}], "\[IndentingNewLine]", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"questions", ",", "\[IndentingNewLine]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<key\>\"", "\[Rule]", "\"\<Q2\>\""}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+       "\"\<question\>\"", "\[Rule]", 
+        "\"\<In which famous city is the Acropolis?\>\""}], " ", ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"\"\<answers\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Athens\>\"", ",", "\"\<Rome\>\"", ",", "\"\<Madrid\>\"", ",", 
+          "\"\<Moscow\>\""}], "}"}]}]}], "\[IndentingNewLine]", "|>"}]}], 
+    "\[IndentingNewLine]", "]"}], ";"}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"AppendTo", "[", 
+   RowBox[{"questions", ",", "\[IndentingNewLine]", 
+    RowBox[{"<|", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"\"\<key\>\"", "\[Rule]", "\"\<Q3\>\""}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+      "\"\<question\>\"", "\[Rule]", 
+       "\"\<Which of the following countries is not member of the European \
+Union?\>\""}], " ", ",", "\[IndentingNewLine]", 
+      RowBox[{"\"\<answers\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<Sweden\>\"", ",", "\"\<Norway\>\"", ",", "\"\<Spain\>\"", ",", 
+         "\"\<United Kingdom\>\""}], "}"}]}]}], "\[IndentingNewLine]", 
+     "|>"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.663363306517213*^9, 3.663363310223033*^9}, 
+   3.6635113869836645`*^9, 3.6635126882850714`*^9, {3.663513931917779*^9, 
+   3.6635139903788548`*^9}, {3.6635140846678667`*^9, 3.663514091338955*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"format", "[", 
+   RowBox[{"key_", ",", "question_", ",", "answers_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"key", ",", "question"}], "}"}], "\[Rule]", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Interpreter\>\"", "\[Rule]", "answers"}], ",", 
+     RowBox[{"\"\<Control\>\"", "\[Rule]", 
+      RowBox[{"Function", "[", 
+       RowBox[{"RadioButtonBar", "[", 
+        RowBox[{"None", ",", "#2", ",", 
+         RowBox[{"Appearance", "\[Rule]", "\"\<Vertical\>\""}]}], "]"}], 
+       "]"}]}]}], "|>"}]}]}]], "Input",
+ CellChangeTimes->{{3.66351163251891*^9, 3.6635116477749557`*^9}, {
+  3.6635116910064583`*^9, 3.663511715848081*^9}, {3.6635121462065697`*^9, 
+  3.6635121531188564`*^9}, {3.6635121835264025`*^9, 3.6635121890629635`*^9}, {
+  3.6635122695906515`*^9, 3.6635123008221083`*^9}, {3.66351238698221*^9, 
+  3.6635123913893504`*^9}, {3.663514015211114*^9, 3.663514032875017*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bin", "=", 
+  RowBox[{"CreateDatabin", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<Name\>\"", "\[Rule]", "\"\<Geography Quiz\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Interpreter\>\"", "\[Rule]", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<Name\>\"", "\[Rule]", "\"\<String\>\""}], "}"}], ",", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"#", "\[Rule]", "\"\<String\>\""}], "&"}], ",", 
+         RowBox[{"questions", "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", "\"\<key\>\""}], "]"}], "]"}]}], "]"}]}], 
+      "]"}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6635144019453106`*^9, 3.6635144869466867`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["Databin",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False}, 
+    PanelBox[
+     PaneSelectorBox[{False->GridBox[{
+        {
+         PaneBox[
+          ButtonBox[
+           
+           DynamicBox[FEPrivate`FrontEndResource[
+            "FEBitmaps", "SquarePlusIconMedium"],
+            ImageSizeCache->{12., {0., 12.}}],
+           Appearance->None,
+           ButtonFunction:>(Typeset`open$$ = True),
+           Evaluator->Automatic,
+           Method->"Preemptive"],
+          Alignment->{Center, Center},
+          
+          ImageSize->
+           Dynamic[{
+            Automatic, 3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+             Magnification]}]], 
+         GraphicsBox[
+          {Thickness[0.05555555555555555], FaceForm[{RGBColor[
+           0.44721600000000006`, 0.519288, 0.528528], Opacity[1.]}], 
+           FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 
+             2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {
+             0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+             0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {
+             0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {0, 1, 0}, {1, 3, 3}, {0, 1, 
+             0}, {1, 3, 3}, {0, 1, 0}, {1, 3, 3}}}, {{{15.646999999999998`, 
+             5.933000000000001}, {13.585, 7.263}, {15.533, 8.458}, {17.332, 
+             7.363999999999999}, {15.646999999999998`, 5.933000000000001}}, {{
+             12.697, 3.425}, {10.245, 5.212}, {12.491, 6.591}, {
+             14.725999999999999`, 5.1499999999999995`}, {12.697, 3.425}}, {{
+             8.666, 0.}, {5.978000000000001, 2.285}, {8.666, 4.244}, {
+             11.354000000000001`, 2.285}, {8.666, 0.}}, {{4.635, 3.425}, {
+             2.606, 5.1499999999999995`}, {4.841, 6.591}, {7.087, 5.212}, {
+             4.635, 3.425}}, {{0., 7.363999999999999}, {1.799, 8.458}, {
+             3.7470000000000003`, 7.263}, {1.6840000000000002`, 
+             5.933000000000001}, {0., 7.363999999999999}}, CompressedData["
+1:eJxTTMoPSmViYGAQBmIQrbtp7vvlbqIOP+uy9pQIqzr8Wfnxkm+SjIPIOveH
+VVNUHNgbpzp3v1Fw2Pb575WKk0YOpnG7PHmYFB1eB+6Qa+U2djDvdEx4OkHR
+AWTMMSA/PQ0Ilik61NgDVQLVF9hyXV9coOKwp2SyBMs0FYcFUvp3Vdg04PbJ
+twJNikPwV4Gsn6DhAFQdxrdWxWHWTCCI1HAAOSMnXcXB42GVyLrjig5nz4CA
+hEMWyOAWRQd+kEfUJaDmKzpoxvQf+qoh4RDQOz1P6LCCA5N2u9jNcxIOlltO
+lO2bLwI3TxJoja6RCNw+kO7GqSJw96CHDwDEr32g
+             "]}]},
+          AspectRatio->1,
+          Axes->False,
+          Background->GrayLevel[0.93],
+          Frame->True,
+          FrameStyle->Directive[
+            Thickness[Tiny], 
+            GrayLevel[0.55]],
+          FrameTicks->None,
+          ImageSize->{Automatic, 
+            Dynamic[
+            3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+              Magnification])]},
+          PlotRange->{{0., 18.}, {0., 19.}},
+          PlotRangePadding->2.5], GridBox[{
+           {
+            RowBox[{
+             TagBox["\<\"Name: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["\<\"Geography Quiz\"\>",
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Entry count: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox[
+              DynamicBox[ToBoxes[
+                Lookup[
+                 Replace[
+                  
+                  DataDropClient`Private`datadropclientcache[{
+                   "DatabinStats", 
+                    "DD705bb6c163e-0caf-40ef-99da-a2cc1eeeb3a7"}], Except[
+                    Blank[Association]] -> {}, {0}], "EntryCount", 0], 
+                StandardForm],
+               ImageSizeCache->{6., {0., 9.}}],
+              "SummaryItem"]}]}
+          },
+          AutoDelete->False,
+          
+          BaseStyle->{
+           ShowStringCharacters -> False, NumberMarks -> False, 
+            PrintPrecision -> 3, ShowSyntaxStyles -> False},
+          GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+          GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+       },
+       AutoDelete->False,
+       BaselinePosition->{1, 1},
+       GridBoxAlignment->{"Rows" -> {{Top}}},
+       GridBoxItemSize->{
+        "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->GridBox[{
+        {
+         PaneBox[
+          ButtonBox[
+           
+           DynamicBox[FEPrivate`FrontEndResource[
+            "FEBitmaps", "SquareMinusIconMedium"]],
+           Appearance->None,
+           ButtonFunction:>(Typeset`open$$ = False),
+           Evaluator->Automatic,
+           Method->"Preemptive"],
+          Alignment->{Center, Center},
+          
+          ImageSize->
+           Dynamic[{
+            Automatic, 3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+             Magnification]}]], 
+         GraphicsBox[
+          {Thickness[0.05555555555555555], FaceForm[{RGBColor[
+           0.44721600000000006`, 0.519288, 0.528528], Opacity[1.]}], 
+           FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 
+             2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {
+             0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
+             0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}}, {{0, 2, 0}, {
+             0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {0, 1, 0}, {1, 3, 3}, {0, 1, 
+             0}, {1, 3, 3}, {0, 1, 0}, {1, 3, 3}}}, {{{15.646999999999998`, 
+             5.933000000000001}, {13.585, 7.263}, {15.533, 8.458}, {17.332, 
+             7.363999999999999}, {15.646999999999998`, 5.933000000000001}}, {{
+             12.697, 3.425}, {10.245, 5.212}, {12.491, 6.591}, {
+             14.725999999999999`, 5.1499999999999995`}, {12.697, 3.425}}, {{
+             8.666, 0.}, {5.978000000000001, 2.285}, {8.666, 4.244}, {
+             11.354000000000001`, 2.285}, {8.666, 0.}}, {{4.635, 3.425}, {
+             2.606, 5.1499999999999995`}, {4.841, 6.591}, {7.087, 5.212}, {
+             4.635, 3.425}}, {{0., 7.363999999999999}, {1.799, 8.458}, {
+             3.7470000000000003`, 7.263}, {1.6840000000000002`, 
+             5.933000000000001}, {0., 7.363999999999999}}, CompressedData["
+1:eJxTTMoPSmViYGAQBmIQrbtp7vvlbqIOP+uy9pQIqzr8Wfnxkm+SjIPIOveH
+VVNUHNgbpzp3v1Fw2Pb575WKk0YOpnG7PHmYFB1eB+6Qa+U2djDvdEx4OkHR
+AWTMMSA/PQ0Ilik61NgDVQLVF9hyXV9coOKwp2SyBMs0FYcFUvp3Vdg04PbJ
+twJNikPwV4Gsn6DhAFQdxrdWxWHWTCCI1HAAOSMnXcXB42GVyLrjig5nz4CA
+hEMWyOAWRQd+kEfUJaDmKzpoxvQf+qoh4RDQOz1P6LCCA5N2u9jNcxIOlltO
+lO2bLwI3TxJoja6RCNw+kO7GqSJw96CHDwDEr32g
+             "]}]},
+          AspectRatio->1,
+          Axes->False,
+          Background->GrayLevel[0.93],
+          Frame->True,
+          FrameStyle->Directive[
+            Thickness[Tiny], 
+            GrayLevel[0.55]],
+          FrameTicks->None,
+          ImageSize->{Automatic, 
+            Dynamic[
+            3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+              Magnification])]},
+          PlotRange->{{0., 18.}, {0., 19.}},
+          PlotRangePadding->2.5], GridBox[{
+           {
+            RowBox[{
+             TagBox["\<\"Name: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["\<\"Geography Quiz\"\>",
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Entry count: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox[
+              DynamicBox[ToBoxes[
+                Lookup[
+                 Replace[
+                  
+                  DataDropClient`Private`datadropclientcache[{
+                   "DatabinStats", 
+                    "DD705bb6c163e-0caf-40ef-99da-a2cc1eeeb3a7"}], Except[
+                    Blank[Association]] -> {}, {0}], "EntryCount", 0], 
+                StandardForm]],
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Short ID: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["\<\"awgx0Dcb\"\>",
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"UUID: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["\<\"DD705bb6c163e-0caf-40ef-99da-a2cc1eeeb3a7\"\>",
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"ShortURL: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox[
+              TagBox[
+               ButtonBox[
+                
+                PaneSelectorBox[{False->"\<\"https://wolfr.am/awgx0Dcb\"\>", 
+                 True->
+                 
+                 StyleBox["\<\"https://wolfr.am/awgx0Dcb\"\>", 
+                  "HyperlinkActive"]}, Dynamic[
+                  CurrentValue["MouseOver"]],
+                 BaseStyle->{"Hyperlink"},
+                 FrameMargins->0,
+                 ImageSize->Automatic],
+                BaseStyle->"Hyperlink",
+                ButtonData->{
+                  URL["https://wolfr.am/awgx0Dcb"], None},
+                ButtonNote->"https://wolfr.am/awgx0Dcb"],
+               Annotation[#, "https://wolfr.am/awgx0Dcb", "Hyperlink"]& ],
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Creator: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["\<\"arnoudb@wolfram.com\"\>",
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Owner: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["\<\"arnoudb@wolfram.com\"\>",
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Creation date: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["\<\"Mon 15 Feb 2016 14:16:23\"\>",
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Latest date: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox[
+              DynamicBox[ToBoxes[
+                Replace[
+                 Lookup[
+                  Replace[
+                   
+                   DataDropClient`Private`datadropclientcache[{
+                    "DatabinLatest", 
+                    "DD705bb6c163e-0caf-40ef-99da-a2cc1eeeb3a7"}], Except[
+                    Blank[Association]] -> {}, {0}], "Timestamp", 
+                  Missing[]], Pattern[DataDropClient`Private`date, 
+                   Blank[DateObject]] :> 
+                 DateString[DataDropClient`Private`date], {0}], StandardForm]],
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Size: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox[
+              DynamicBox[ToBoxes[
+                Round[
+                 Lookup[
+                  Replace[
+                   
+                   DataDropClient`Private`datadropclientcache[{
+                    "DatabinStats", 
+                    "DD705bb6c163e-0caf-40ef-99da-a2cc1eeeb3a7"}], Except[
+                    Blank[Association]] -> {}, {0}], "Size", 0]], 
+                StandardForm], 0.1],
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Latest: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox[
+              DynamicBox[ToBoxes[
+                Lookup[
+                 Replace[
+                  
+                  DataDropClient`Private`datadropclientcache[{
+                   "DatabinLatest", 
+                    "DD705bb6c163e-0caf-40ef-99da-a2cc1eeeb3a7"}], Except[
+                    Blank[Association]] -> {}, {0}], "Data", 
+                 Missing[]], StandardForm]],
+              "SummaryItem"]}]}
+          },
+          AutoDelete->False,
+          
+          BaseStyle->{
+           ShowStringCharacters -> False, NumberMarks -> False, 
+            PrintPrecision -> 3, ShowSyntaxStyles -> False},
+          GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+          GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+       },
+       AutoDelete->False,
+       BaselinePosition->{1, 1},
+       GridBoxAlignment->{"Rows" -> {{Top}}},
+       GridBoxItemSize->{
+        "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+      Typeset`open$$],
+      ImageSize->Automatic],
+     BaselinePosition->Baseline],
+    DynamicModuleValues:>{}], "]"}],
+  Databin["awgx0Dcb"],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.6635144908718224`*^9, 3.6645561858918915`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bin", "//", "InputForm"}]], "Input",
+ CellChangeTimes->{{3.663515086233176*^9, 3.66351508817698*^9}}],
+
+Cell["Databin[\"awgx0Dcb\"]", "Output",
+ CellChangeTimes->{3.6635150885475345`*^9, 3.6645561871176662`*^9}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Clear", "[", "form", "]"}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"form", "[", 
+    RowBox[{"title_", ",", "questions_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"result", ",", "action"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"result", "=", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"format", "[", 
+          RowBox[{
+           RowBox[{"#", "[", "\"\<key\>\"", "]"}], ",", 
+           RowBox[{"#", "[", "\"\<question\>\"", "]"}], ",", 
+           RowBox[{"#", "[", "\"\<answers\>\"", "]"}]}], "]"}], "&"}], "/@", 
+        "questions"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"action", "=", 
+       RowBox[{"Map", "[", 
+        RowBox[{"Slot", ",", 
+         RowBox[{"questions", "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", "\"\<key\>\""}], "]"}], "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"result", "=", 
+       RowBox[{"Join", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"title", ",", "\"\<Title\>\""}], "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\"\<name\>\"", ",", "\"\<Student Name\>\""}], "}"}], 
+            "\[Rule]", "\"\<String\>\""}], ",", "\[IndentingNewLine]", 
+           "Delimiter"}], "\[IndentingNewLine]", "}"}], ",", 
+         "\[IndentingNewLine]", "result"}], "\[IndentingNewLine]", "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"action", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"Slot", "[", "\"\<name\>\"", "]"}], "}"}], ",", "action"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"With", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"formaction", "=", "action"}], "}"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"FormFunction", "[", "\[IndentingNewLine]", 
+         RowBox[{"result", ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"DatabinAdd", "[", 
+              RowBox[{
+               RowBox[{"Databin", "[", "\"\<adVtsiVR\>\"", "]"}], ",", 
+               "formaction"}], "]"}], ";", "formaction"}], ")"}], "&"}], ",", 
+          "\[IndentingNewLine]", "\"\<String\>\"", ",", "\[IndentingNewLine]", 
+          RowBox[{"AppearanceRules", "\[Rule]", 
+           RowBox[{"<|", 
+            RowBox[{
+            "\"\<ItemLayout\>\"", " ", "\[Rule]", " ", "\"\<Vertical\>\""}], 
+            "|>"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"FormTheme", "\[Rule]", "\"\<Blue\>\""}]}], 
+         "\[IndentingNewLine]", "]"}]}], "]"}]}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6633618394497766`*^9, 3.6633619041976695`*^9}, {
+   3.663361936897129*^9, 3.6633619595775533`*^9}, {3.663362162552639*^9, 
+   3.6633622395249896`*^9}, {3.6633622997721653`*^9, 3.663362319745528*^9}, {
+   3.6633623624210515`*^9, 3.6633623670734177`*^9}, {3.6633625488009925`*^9, 
+   3.6633625507176757`*^9}, {3.6633625937106967`*^9, 3.66336261681754*^9}, {
+   3.6633626799003315`*^9, 3.6633626829807043`*^9}, {3.6633627798685474`*^9, 
+   3.663362786814756*^9}, {3.663362854694332*^9, 3.6633628576190557`*^9}, {
+   3.6633628915723705`*^9, 3.663363010589134*^9}, {3.663363063282562*^9, 
+   3.663363088657736*^9}, {3.6633632151664643`*^9, 3.6633632385619135`*^9}, {
+   3.6633632716113987`*^9, 3.663363277913849*^9}, {3.663363319292143*^9, 
+   3.663363330284636*^9}, {3.663363452887046*^9, 3.6633634641022015`*^9}, 
+   3.663511768375736*^9, 3.6635119356001863`*^9, {3.6635120215754347`*^9, 
+   3.6635120279515676`*^9}, 3.663512114686199*^9, {3.6635123319098167`*^9, 
+   3.663512368126252*^9}, {3.663512444605723*^9, 3.6635125520053005`*^9}, {
+   3.663512606726765*^9, 3.663512656373475*^9}, {3.6635128077418885`*^9, 
+   3.663512814005673*^9}, {3.663512854446218*^9, 3.6635128728052735`*^9}, {
+   3.6635130711095667`*^9, 3.6635131011012087`*^9}, {3.66351313610165*^9, 
+   3.663513220141122*^9}, {3.663513270485258*^9, 3.6635133099005184`*^9}, {
+   3.6635140232362204`*^9, 3.663514025211423*^9}, {3.663514144228946*^9, 
+   3.663514234227784*^9}, {3.663514390995347*^9, 3.6635143944042006`*^9}, {
+   3.6635145160198784`*^9, 3.663514525810787*^9}, {3.663514562795534*^9, 
+   3.663514591938363*^9}, {3.663514656114953*^9, 3.6635146714665775`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CloudDeploy", "[", 
+  RowBox[{
+   RowBox[{"form", "[", 
+    RowBox[{"\"\<Geography Quiz\>\"", ",", "questions"}], "]"}], ",", 
+   RowBox[{"CloudObject", "[", "\"\<geography-quiz\>\"", "]"}], ",", 
+   RowBox[{"Permissions", "\[Rule]", "\"\<Public\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.66336196265186*^9, 3.663361967511115*^9}, {
+  3.663362814073004*^9, 3.6633628193481617`*^9}, {3.6635142227639723`*^9, 
+  3.6635142306512957`*^9}, {3.663514351122772*^9, 3.6635143588826914`*^9}, {
+  3.663514758010217*^9, 3.663514760506919*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TagBox[
+    ButtonBox[
+     PaneSelectorBox[{
+      False->"\<\"https://www.wolframcloud.com/objects/user-7053ce31-817f-\
+4643-aec1-eda27051bba6/geography-quiz\"\>", True->
+      StyleBox["\<\"https://www.wolframcloud.com/objects/user-7053ce31-817f-\
+4643-aec1-eda27051bba6/geography-quiz\"\>", "HyperlinkActive"]}, Dynamic[
+       CurrentValue["MouseOver"]],
+      BaseStyle->{"Hyperlink"},
+      FrameMargins->0,
+      ImageSize->Automatic],
+     BaseStyle->"Hyperlink",
+     ButtonData->{
+       URL[
+       "https://www.wolframcloud.com/objects/user-7053ce31-817f-4643-aec1-\
+eda27051bba6/geography-quiz"], None},
+     ButtonNote->
+      "https://www.wolframcloud.com/objects/user-7053ce31-817f-4643-aec1-\
+eda27051bba6/geography-quiz"],
+    Annotation[#, 
+     "https://www.wolframcloud.com/objects/user-7053ce31-817f-4643-aec1-\
+eda27051bba6/geography-quiz", "Hyperlink"]& ], "]"}],
+  CloudObject[
+  "https://www.wolframcloud.com/objects/user-7053ce31-817f-4643-aec1-\
+eda27051bba6/geography-quiz"],
+  SelectWithContents->True]], "Output",
+ CellChangeTimes->{
+  3.663361979013592*^9, 3.6633622436762896`*^9, 3.6633623708153076`*^9, 
+   3.6633625577422748`*^9, {3.6633625988684716`*^9, 3.663362621165283*^9}, 
+   3.6633626879935217`*^9, 3.66336279163657*^9, 3.6633628225124016`*^9, 
+   3.663362954579916*^9, {3.6633629875308275`*^9, 3.6633630151621904`*^9}, 
+   3.663363091592245*^9, 3.663363243196871*^9, 3.6633633483204126`*^9, 
+   3.6633634683085938`*^9, 3.663511166112224*^9, 3.6635119403810697`*^9, {
+   3.66351219909593*^9, 3.6635122206709013`*^9}, 3.6635123982609158`*^9, 
+   3.6635126596889043`*^9, 3.6635128163767614`*^9, {3.6635129463625674`*^9, 
+   3.6635129902046328`*^9}, 3.6635130247754717`*^9, 3.663513126929283*^9, {
+   3.663513176487486*^9, 3.663513190903887*^9}, 3.663513222349221*^9, 
+   3.6635132765040503`*^9, 3.6635133180637684`*^9, 3.663514100582857*^9, 
+   3.663514155083169*^9, {3.6635142319999514`*^9, 3.663514239288734*^9}, 
+   3.6635143602706785`*^9, {3.6635145303244424`*^9, 3.6635145357268047`*^9}, {
+   3.6635145810899267`*^9, 3.663514597069954*^9}, 3.663514674123406*^9, 
+   3.663514763600286*^9, 3.664556189887341*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bin", "//", "Dataset"}]], "Input",
+ CellChangeTimes->{{3.66351471405951*^9, 3.6635147185691752`*^9}, {
+  3.6635151016504016`*^9, 3.6635151084097166`*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TemplateBox[{StyleBox[
+     GridBox[{{
+        RowBox[{"{", "\[ThinSpace]", 
+          StyleBox[
+           RowBox[{"{", "\[ThinSpace]", 
+             InterpretationBox[
+              TagBox[
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "\"Arnoud Buzing\"", ",", "\"Canberra\"", ",", "\"Athens\"",
+                    ",", "\"Norway\""}], "}"}], Short[#, 5]& ], {
+              "Arnoud Buzing", "Canberra", "Athens", "Norway"}], ",", 
+             InterpretationBox[
+              TagBox["3.6634930191921`*^9", Short[#, 5]& ], 
+              3.6634930191921*^9], "\[ThinSpace]", "}"}], LineBreakWithin -> 
+           Automatic], ",", 
+          StyleBox[
+           RowBox[{"{", "\[ThinSpace]", 
+             InterpretationBox[
+              TagBox[
+               RowBox[{"{", 
+                 
+                 RowBox[{
+                  "\"Arnoud Buzing\"", ",", "\"Canberra\"", ",", "\"Athens\"",
+                    ",", "\"Norway\""}], "}"}], Short[#, 5]& ], {
+              "Arnoud Buzing", "Canberra", "Athens", "Norway"}], ",", 
+             InterpretationBox[
+              TagBox["3.663493103631824`*^9", Short[#, 5]& ], 
+              3.663493103631824*^9], "\[ThinSpace]", "}"}], LineBreakWithin -> 
+           Automatic], "\[ThinSpace]", "}"}]}, {
+        ItemBox[
+         RowBox[{"2 levels", 
+           AdjustmentBox[" | ", BoxBaselineShift -> -0.3], 
+           RowBox[{"2", "rows"}]}], 
+         BaseStyle -> {
+          FontFamily -> "Helvetica", FontSize -> 10, FontColor -> 
+           GrayLevel[0.4], Editable -> False, Selectable -> False}, 
+         ItemSize -> {Automatic, Automatic}, Alignment -> {Left, Center}, 
+         Background -> RGBColor[0.92, 0.92, 0.9]]}}, 
+      GridBoxAlignment -> {{{Left}}}, 
+      GridBoxItemSize -> {
+       "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+      GridBoxSpacings -> {"Rows" -> {{0, 0}}, "Columns" -> {{0}}}, 
+      GridBoxFrame -> {"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}}, 
+      FrameStyle -> RGBColor[0, 0, 0, 0.4], 
+      GridFrameMargins -> {{2, 1}, {0, 2}}], LineBreakWithin -> Automatic],
+    "Dataset[{__List}]"},
+   "Dataset",
+   DisplayFunction->(TagBox[
+     StyleBox[#, {
+      ShowAutoStyles -> False, LineBreakWithin -> False, FontWeight -> 
+       "Light", FontFamily -> "Helvetica Neue", NumberMarks -> False, 
+       SpanMaxSize -> 3, SpanMinSize -> 1., Editable -> False, Selectable -> 
+       True, Background -> RGBColor[0.985, 0.98, 0.973], 
+       LinebreakAdjustments -> {0.4, 5, 100, 0, 0.5}, LineIndent -> 0, 
+       LineSpacing -> {1.1, 5}}], Deploy]& ),
+   InterpretationFunction->(#2& )],
+  False,
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{
+  3.6635147192622843`*^9, {3.6635151046885834`*^9, 3.663515109033174*^9}}]
+}, Open  ]]
+},
+WindowSize->{958, 988},
+WindowMargins->{{44, Automatic}, {Automatic, 41}},
+FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (February 14, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2626, 65, 552, "Input"],
+Cell[3187, 87, 941, 20, 72, "Input"],
+Cell[CellGroupData[{
+Cell[4153, 111, 783, 19, 92, "Input"],
+Cell[4939, 132, 12898, 307, 72, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17874, 444, 125, 2, 31, "Input"],
+Cell[18002, 448, 107, 1, 45, "Output"]
+}, Open  ]],
+Cell[18124, 452, 4564, 94, 452, "Input"],
+Cell[CellGroupData[{
+Cell[22713, 550, 562, 10, 31, "Input"],
+Cell[23278, 562, 2224, 44, 55, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25539, 611, 178, 3, 31, "Input"],
+Cell[25720, 616, 2863, 65, 61, "Output"]
+}, Open  ]]
+}
+]
+*)
+
